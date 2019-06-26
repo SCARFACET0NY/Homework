@@ -1,3 +1,5 @@
+package banks;
+
 public abstract class Bank {
     private int amount = 0;
     private int duration = 0;

@@ -1,24 +1,28 @@
-public class BankFour extends Bank {
-    private double rate1 = 0.04;
-    private double rate2 = 0.07;
-    private double rate3 = 0.10;
-    private double rate4 = 0.13;
-    private double rate5 = 0.16;
-    private double maxRate = 0.19;
+package banks;
+
+import banks.Bank;
+
+public class BankOne extends Bank {
+    private double rate1 = 0.03;
+    private double rate2 = 0.06;
+    private double rate3 = 0.09;
+    private double rate4 = 0.12;
+    private double rate5 = 0.15;
+    private double maxRate = 0.18;
 
     @Override
     public void deposit(int amount, int duration) {
         setAmount(getAmount() + amount);
         setDuration(getDuration() + duration);
-        if (duration < 90) {
+        if (getDuration() < 80) {
             setTotal(getTotal() + amount + (amount * rate1));
-        } else if (duration < 180) {
+        } else if (getDuration() < 160) {
             setTotal(getTotal() + amount + (amount * rate2));
-        } else if (duration < 270) {
+        } else if (getDuration() < 240) {
             setTotal(getTotal() + amount + (amount * rate3));
-        } else if (duration < 360) {
+        } else if (getDuration() < 320) {
             setTotal(getTotal() + amount + (amount * rate4));
-        } else if (duration < 450) {
+        } else if (getDuration() < 400) {
             setTotal(getTotal() + amount + (amount * rate5));
         } else {
             setTotal(getTotal() + amount + (amount * maxRate));
@@ -36,6 +40,6 @@ public class BankFour extends Bank {
             return total;
         }
 
-        return amount + (total - amount) * daysAfterDeposit / duration * 0.53;
+        return amount + (total - amount) * daysAfterDeposit / duration * 0.5;
     }
 }

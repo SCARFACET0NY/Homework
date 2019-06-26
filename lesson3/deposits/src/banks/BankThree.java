@@ -1,3 +1,7 @@
+package banks;
+
+import banks.Bank;
+
 public class BankThree extends Bank {
     private double rate1 = 0.05;
     private double rate2 = 0.08;

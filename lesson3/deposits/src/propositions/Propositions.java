@@ -1,3 +1,10 @@
+package propositions;
+
+import banks.BankFour;
+import banks.BankOne;
+import banks.BankThree;
+import banks.BankTwo;
+
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;

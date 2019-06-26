@@ -1,3 +1,6 @@
+import banks.BankOne;
+import propositions.Propositions;
+
 public class Main {
     public static void main(String[] args) {
         Propositions propositions = new Propositions();
