@@ -1,12 +1,7 @@
 public abstract class Bank {
-    private int amount;
-    private int duration ;
+    private int amount = 0;
+    private int duration = 0;
     private double total = 0;
-
-    public Bank(int amount, int duration) {
-        this.amount = amount;
-        this.duration = duration;
-    }
 
     public int getAmount() {
         return amount;
@@ -35,4 +30,10 @@ public abstract class Bank {
     public abstract void deposit(int amount, int duration);
 
     public abstract double withdraw(int daysAfterDeposit);
+
+    public void cleanDeposit() {
+        setAmount(0);
+        setDuration(0);
+        setTotal(0);
+    }
 }

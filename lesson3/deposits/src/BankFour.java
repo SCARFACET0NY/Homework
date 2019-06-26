@@ -6,24 +6,19 @@ public class BankFour extends Bank {
     private double rate5 = 0.16;
     private double maxRate = 0.19;
 
-    public BankFour(int amount, int duration) {
-        super(amount, duration);
-        deposit(amount, duration);
-    }
-
     @Override
     public void deposit(int amount, int duration) {
         setAmount(getAmount() + amount);
         setDuration(getDuration() + duration);
-        if (duration < 110) {
+        if (duration < 90) {
             setTotal(getTotal() + amount + (amount * rate1));
-        } else if (duration < 220) {
+        } else if (duration < 180) {
             setTotal(getTotal() + amount + (amount * rate2));
-        } else if (duration < 330) {
+        } else if (duration < 270) {
             setTotal(getTotal() + amount + (amount * rate3));
-        } else if (duration < 440) {
+        } else if (duration < 360) {
             setTotal(getTotal() + amount + (amount * rate4));
-        } else if (duration < 550) {
+        } else if (duration < 450) {
             setTotal(getTotal() + amount + (amount * rate5));
         } else {
             setTotal(getTotal() + amount + (amount * maxRate));
@@ -32,9 +27,15 @@ public class BankFour extends Bank {
 
     @Override
     public double withdraw(int daysAfterDeposit) {
-        if (daysAfterDeposit == getDuration()) {
-            return getTotal();
+        double total = getTotal();
+        double amount = getAmount();
+        double duration = getDuration();
+        cleanDeposit();
+
+        if (daysAfterDeposit == duration) {
+            return total;
         }
-        return getAmount() + (getTotal() - getAmount()) * daysAfterDeposit / getDuration() * 0.8;
+
+        return amount + (total - amount) * daysAfterDeposit / duration * 0.53;
     }
 }
